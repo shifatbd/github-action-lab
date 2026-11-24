@@ -10,16 +10,19 @@ jobs:
       - name: Clone the code
         run: echo "cloning started"
   build:
+    needs: [code]
     runs-on: ubuntu-slim
     steps:
       - name: Build the code
         run: echo "build started"
   test:
+    needs: [build]
     runs-on: ubuntu-slim
     steps:
       - name: Test the code
         run: echo "Test have started"
-  Deploy:
+  deploy:
+    needs: [test]
     runs-on: ubuntu-slim
     steps:
       - name: Deploy the code
