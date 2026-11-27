@@ -1,0 +1,9 @@
+name: hello
+on: [push]
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Hello from ${{ github.actor }} on ${{ github.ref_name }}"
+      - run: ls -la
